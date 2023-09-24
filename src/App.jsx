@@ -4,28 +4,22 @@ import './App.css'
 
 function App() {
   const [showGame, setShowGame] = useState(false);
-  // const hourRef = useRef(0);
-  // const minuteRef = useRef(0);
-  // const secondRef = useRef(0);
   const [hour, setHour] = useState(0);
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
-  const [key, setKey] = useState(0);
+  const [incTime, setIncTime] = useState(0);
+  const [fieldPrueba, setFieldPrueba] = useState(0);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setKey(key + 1);
-    // setShowGame(true);
-
-    // hourRef.current = e.target.hours.value;
-    // minuteRef.current = e.target.minutes.value;
-    // secondRef.current = e.target.seconds.value;
+    setShowGame(true);
   };
 
   const handleValueChange = (e) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
+    setFieldPrueba(fieldValue);
 
     switch (fieldName) {
       case "hours":
@@ -38,6 +32,10 @@ function App() {
 
       case "seconds":
         setSecond(fieldValue);
+        break;
+
+      case "increment":
+        setIncTime(fieldValue);
         break;
 
       default:
@@ -78,22 +76,28 @@ function App() {
               <option value="30">30</option>
             </select>
 
+            <label htmlFor="increment">Increment: </label>
+            <select name="increment" id="increment" onChange={(e) => handleValueChange(e)}>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
 
             <div className="buttons">
-              <button className="saveConfigBtn" type="button">Guardar configuracion</button>
               <button className="startGameBtn" type="submit">Comenzar partida</button>
             </div>
           </form>
         </div>
       </div>
-      <div className={`timer-${!showGame}`}>
-        {/* <TimerComponent timer1={timerRef1.current} incTime={incTimeRef.current} /> */}
-        <Game hours={hour} minutes={minute} seconds={second} keyy={key}/>
+      <div className={`timer-${showGame}`}>
+        <Game hours={hour} minutes={minute} seconds={second} incTime={incTime} key={fieldPrueba}/>
       </div>
     </>
   )
 }
-
-// dar a elegir el tiempo a finish y el incremento desde el meenu, dentro de dropdowns
 
 export default App
