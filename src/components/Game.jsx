@@ -274,7 +274,7 @@ const Game = ({ hours, minutes, seconds, incTime, myKey }) => {
 
 
             </main>
-            <div className={`winnerContainer ${isThereAWinner == 1 ? "showWinner" : "hideWinner"}`}>
+            <div className={`winnerContainer ${!isThereAWinner ? "hideWinner" : "showWinner"}`}>
                 <div className="trophies">
                     <i className="fa-solid fa-trophy fa-bounce"></i>
                     <h2>You Win!</h2>
