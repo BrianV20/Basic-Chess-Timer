@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .mainMenuContainer-display-true {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    /* padding: 0 20px; */
+    background-color: #fdf0d5;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .mainMenuContainer-display-false {
+    display: none;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 1.5rem 4rem;
+    /* border: 2px solid red; */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    /* background: linear-gradient(to right, #ff9966, #ff5e62); */
+    background: linear-gradient(to right, #ecf39e, #90a955);
+    /* margin: 0 auto; */
+  }
+  
+  .configs {
+    /* border: 2px solid green; */
+    text-align: center;
+    > form > p {
+        font-size: 0.9rem;
+        /* font-weight: 500; */
+        margin: 0rem 2rem 2rem;
+    }
+  }
+  
+  .input-container {
+    > label {
+        font-size: 1.2rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    > input {
+        font-size: 1.1rem;
+        margin: 1rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+        border: none;
+    }
+  }
+  
+  .error-message {
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    /* margin: 1rem; */
+    color: red;
+  }
+  
+  .buttons {
+    /* border: 2px solid violet; */
+    > button {
+        /* font-size: 1.2rem; */
+        font-weight: 500;
+        margin: 1rem;
+        padding: 0.3rem 1rem;
+        border-radius: 5px;
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
+        border: none;
+        cursor: pointer;
+        background-color: #ecf39e;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        /* transition: background-color 0.5s ease-in-out; */
+    }
+  }
+  
+  .timer-true {
+    display: block;
+    opacity: 1;
+    transition: all 5s ease-in-out;
+  }
+  
+  .timer-false {
+    display: none;
+    opacity: 0;
+    transition: all 5s ease-in-out;
+  }
